@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  // Cloudflare Pages requires static export for best compatibility
-  // Using standalone for flexibility
+  output: 'export',
+  // Static export mode for Cloudflare Pages deployment
+  // Generates static HTML files in .next/out directory
+  distDir: '.next/out',
 };
 
 module.exports = nextConfig;
