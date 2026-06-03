@@ -2,8 +2,7 @@
 const nextConfig = {
   output: 'export',
   // Static export mode for Cloudflare Pages deployment
-  // Generates static HTML files in .next/out directory
-  distDir: '.next/out',
+  // Generates static HTML files in 'out' directory
 };
 
 module.exports = nextConfig;
