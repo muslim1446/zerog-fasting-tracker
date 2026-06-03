@@ -37,7 +37,7 @@ strokeLinecap="round"
 r={normalizedRadius}
 cx={radius}
 cy={radius}
-className={${currentPhase.ringClass} transition-colors duration-1000}
+className={`${currentPhase.ringClass} transition-colors duration-1000`}
 />
 </svg>
 {/* Center Metrics */}
