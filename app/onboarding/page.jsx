@@ -1,18 +1,9 @@
-import nextDynamic from 'next/dynamic';
 import GraphSchema from '../components/GraphSchema';
 import FastingFooter from '../components/FastingFooter';
 import ServerOnboardingGuide from '../components/ServerOnboardingGuide';
 import NoScriptFallback from '../components/NoScriptFallback';
 import { buildPageMetadata } from '../../lib/seo/metadata';
-
-const OnboardingClient = nextDynamic(() => import('../components/OnboardingClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="max-w-md mx-auto py-8 text-center text-tuwa-muted text-sm">
-      Loading profile form…
-    </div>
-  ),
-});
+import OnboardingWrapper from './OnboardingWrapper';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -31,7 +22,7 @@ export default function OnboardingPage() {
           <h2 className="text-center text-xs font-bold text-white uppercase tracking-widest mb-6">
             Interactive form
           </h2>
-          <OnboardingClient />
+          <OnboardingWrapper />
         </div>
       </div>
       <FastingFooter compact />
