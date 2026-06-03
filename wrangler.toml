@@ -1,0 +1,27 @@
+name = "zerog-fasting-tracker"
+type = "javascript"
+main = "dist/index.js"
+
+# Cloudflare Pages Build Configuration
+[env.production]
+name = "zerog-fasting-tracker"
+
+# D1 Database Binding for Production
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "zerog_db"
+database_id = "YOUR_DATABASE_ID_HERE"
+# You'll get the database_id after creating the D1 database
+
+# D1 Database Binding for Local Development
+[[d1_databases]]
+binding = "DB"
+database_name = "zerog_db_local"
+# Local database file path (created automatically)
+
+# Environment Variables (optional)
+[env.production.vars]
+ENVIRONMENT = "production"
+
+[env.development]
+ENVIRONMENT = "development"
