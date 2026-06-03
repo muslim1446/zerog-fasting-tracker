@@ -8,4 +8,3 @@ pages_build_output_dir = ".vercel/output/static"
 binding = "DB"
 database_name = "zerog_db"
 database_id = "d4fd103b-90c2-457d-a801-d3f315fc57ef"
-remote = true
