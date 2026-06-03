@@ -1,34 +1,9 @@
+#:schema node_modules/wrangler/config-schema.json
 name = "zerog-fasting-tracker"
-type = "javascript"
-compatibility_date = "2024-09-19"
+compatibility_date = "2024-04-01"
+pages_build_output_dir = ".next"
 
-# Cloudflare Pages build output directory
-pages_build_output_dir = ".next/out"
-
-# Build command for Cloudflare Pages
-[build]
-command = "npm run build"
-
-# Local D1 database for development
 [[d1_databases]]
 binding = "DB"
 database_name = "zerog_db"
-database_id = "LOCAL"
-
-# Environment variables
-[vars]
-ENVIRONMENT = "development"
-
-# Production environment
-[env.production]
-name = "zerog-fasting-tracker-prod"
-vars = { ENVIRONMENT = "production" }
-
-# Production D1 database binding
-[[env.production.d1_databases]]
-binding = "DB"
-database_name = "zerog_db"
 database_id = "d4fd103b-90c2-457d-a801-d3f315fc57ef"
-
-[env.production.vars]
-ENVIRONMENT = "production"
