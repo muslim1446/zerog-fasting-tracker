@@ -8,11 +8,16 @@ const config = {
   theme: {
     extend: {
       colors: {
-        'neutral': {
-          '950': '#0a0a0a',
-          '900': '#1a1a1a',
-          '800': '#2a2a2a',
-        },
+        'tuwa-black': '#0a0a0b',
+        'tuwa-gray': '#161618',
+        'tuwa-text': '#e5e5e5',
+        'tuwa-muted': '#c4c4c4',
+        'tuwa-accent': '#3b82f6',
+        'tuwa-gold': '#d4af37',
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },

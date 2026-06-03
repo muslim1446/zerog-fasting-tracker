@@ -1,32 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-@apply bg-neutral-950 text-neutral-100;
-font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
+@layer base {
+  body {
+    @apply bg-tuwa-black text-tuwa-text antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading), 'Plus Jakarta Sans', sans-serif;
+  }
+
+  ::selection {
+    @apply bg-tuwa-accent/30;
+  }
 }
-{
-@apply selection:bg-purple-500/30;
-}
-/* Dynamic glow effects for the Fasting Ring phases */
+
+/* Fasting ring phase glows */
 .glow-emerald { filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.5)); }
-.glow-blue { filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5)); }
+.glow-blue { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5)); }
 .glow-orange { filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.5)); }
 .glow-purple { filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.5)); }
 .glow-pink { filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.5)); }
 .glow-yellow { filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.5)); }
 .glow-red { filter: drop-shadow(0 0 10px rgba(248, 113, 113, 0.5)); }
-/* Refined scrollbar for a sleek app feel */
+
 ::-webkit-scrollbar {
-width: 6px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-background: transparent;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-background: #262626;
-border-radius: 4px;
+  background: #262626;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-background: #404040;
+  background: #404040;
 }
