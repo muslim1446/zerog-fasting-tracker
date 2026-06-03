@@ -1,28 +1,30 @@
 name = "zerog-fasting-tracker"
-main = "dist/index.js" # Modern wrangler uses 'main' instead of [build.upload]
+type = "javascript"
 compatibility_date = "2024-09-19"
 
+# Cloudflare Pages build output directory
+pages_build_output_dir = ".next/out"
+
+# Build command for Cloudflare Pages
 [build]
 command = "npm run build"
 
-# --- DEFAULT / LOCAL SETTINGS ---
-# This applies when running `wrangler dev`
+# Local D1 database for development
 [[d1_databases]]
 binding = "DB"
 database_name = "zerog_db"
 database_id = "LOCAL"
 
+# Environment variables
 [vars]
 ENVIRONMENT = "development"
 
-# --- PRODUCTION SETTINGS ---
-# This applies when running `wrangler deploy --env production`
+# Production environment
 [env.production]
 name = "zerog-fasting-tracker-prod"
-routes = [
-  { pattern = "zerog.fasting.opentuwa.com/*", zone_name = "fasting.opentuwa.com" }
-]
+vars = { ENVIRONMENT = "production" }
 
+# Production D1 database binding
 [[env.production.d1_databases]]
 binding = "DB"
 database_name = "zerog_db"
