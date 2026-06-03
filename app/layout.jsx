@@ -1,5 +1,15 @@
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import {
+  SITE_URL,
+  SITE_NAME,
+  OG_IMAGE_URL,
+  TWITTER_SITE,
+  PARENT_ORG_NAME,
+} from '../lib/site';
+import { PAGE_SEO } from '../lib/seo/metadata';
+
+export const runtime = 'edge';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,14 +23,34 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
+const home = PAGE_SEO.home;
+
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'OpenTuwa Fasting | Metabolic Timing',
-    template: '%s | OpenTuwa Fasting',
+    default: home.title,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'OpenTuwa Fasting — an independent intermittent-fasting timer with illustrative metabolic phase estimates.',
-  metadataBase: new URL('https://fasting.opentuwa.com'),
+  description: home.description,
+  keywords: home.keywords,
+  applicationName: SITE_NAME,
+  authors: [{ name: PARENT_ORG_NAME, url: 'https://opentuwa.com' }],
+  creator: PARENT_ORG_NAME,
+  publisher: PARENT_ORG_NAME,
+  category: 'health',
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -47,19 +77,33 @@ export const metadata = {
       },
     ],
   },
+  manifest: '/manifest.json',
   openGraph: {
-    siteName: 'OpenTuwa Fasting',
     type: 'website',
+    locale: 'en_US',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: home.title,
+    description: home.description,
     images: [
       {
-        url: 'https://opentuwa.com/assets/ui/web_1200.png',
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'OpenTuwa Fasting',
+        alt: SITE_NAME,
       },
     ],
   },
-  themeColor: '#0a0a0b',
+  twitter: {
+    card: 'summary_large_image',
+    site: TWITTER_SITE,
+    title: home.title,
+    description: home.description,
+    images: [OG_IMAGE_URL],
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export const viewport = {
@@ -74,10 +118,11 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://opentuwa.com" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="OpenTuwa Fasting" />
+        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
       </head>
       <body className="font-sans antialiased bg-tuwa-black text-tuwa-text min-h-screen flex flex-col">
         {children}

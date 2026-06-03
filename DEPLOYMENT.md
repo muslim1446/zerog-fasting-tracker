@@ -167,14 +167,16 @@ ENVIRONMENT = "development"
 
 In the "Set up builds and deployments" page:
 
-- **Project name**: `zerog-fasting-tracker`
+- **Project name**: `fasting-opentuwa` (or your preferred name)
 - **Production branch**: `main`
-- **Framework preset**: `Next.js`
-- **Build command**: `npm run build`
-- **Build output directory**: `.next/static`
+- **Framework preset**: `None` (custom build — do not use static Next.js export)
+- **Build command**: `npm run cf-build`
+- **Build output directory**: `.vercel/output/static`
 - **Environment variables** (click "Add variable"):
   - Name: `NODE_VERSION`
-  - Value: `18`
+  - Value: `20`
+  - Name: `NPM_FLAGS` (optional)
+  - Value: `--legacy-peer-deps`
 
 ### Step 4.3: Add D1 Database Binding
 
@@ -363,6 +365,13 @@ Cloudflare Pages automatically detects the push to `main` and re-deploys your ap
 ```bash
 npm install
 npm run dev
+```
+
+### Cloudflare SSR build (matches opentuwa.com stack)
+```bash
+npm install
+npm run cf-build
+npm run preview
 ```
 
 ### Database Management

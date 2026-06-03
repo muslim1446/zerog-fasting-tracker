@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HEALTH_CLAIMS, FOOTER } from '../../lib/copy';
 
 export default function FastingFooter({ compact = false }) {
@@ -14,14 +15,22 @@ export default function FastingFooter({ compact = false }) {
 
       <div className="max-w-2xl mx-auto mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-tuwa-muted">
         <span>{FOOTER.copyright}</span>
-        <a
-          href={FOOTER.mainSite}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-bold tracking-widest uppercase hover:text-white transition-colors"
-        >
-          {FOOTER.mainSiteLabel} →
-        </a>
+        <div className="flex flex-wrap justify-center gap-6">
+          <Link
+            href="/legal"
+            className="font-bold tracking-widest uppercase hover:text-white transition-colors"
+          >
+            Legal
+          </Link>
+          <a
+            href={FOOTER.mainSite}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold tracking-widest uppercase hover:text-white transition-colors"
+          >
+            {FOOTER.mainSiteLabel} →
+          </a>
+        </div>
       </div>
     </footer>
   );

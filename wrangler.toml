@@ -1,9 +1,11 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "zerog-fasting-tracker"
-compatibility_date = "2024-04-01"
-pages_build_output_dir = "out"
+name = "fasting-opentuwa"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat_v2"]
+pages_build_output_dir = ".vercel/output/static"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "zerog_db"
 database_id = "d4fd103b-90c2-457d-a801-d3f315fc57ef"
+remote = true

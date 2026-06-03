@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "include": [
+    "/",
+    "/onboarding",
+    "/legal",
+    "/api/*",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "exclude": []
+}
