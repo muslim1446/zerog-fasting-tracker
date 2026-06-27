@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#0A0A0B</color>
+    <string name="app_name">OpenTuwa Fasting</string>
+    <style name="Theme.OpenTuwaFasting" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">#FF0A0A0B</item>
+        <item name="android:navigationBarColor">#FF0A0A0B</item>
+        <item name="android:windowBackground">#FF0A0A0B</item>
+    </style>
+</resources>
